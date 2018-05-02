@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'site/home'
   get 'site/profile'
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
   resources :orders
   resources :order_items
   resources :products
