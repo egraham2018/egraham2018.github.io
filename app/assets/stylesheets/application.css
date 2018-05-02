@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body{
+  background-color:#F5F5F5;
+  font-family: garamond;
+  color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+ .page-wrap {
+  min-height: 100%;
+  background-color:#F5F5F5;
+  /* equal to footer height */
+  margin-bottom: -120px; 
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+footer {
+  background-color:#8B0000;
+  border-top: 10px solid navy;
+  height:120px;
+  margin-top:10px;
+}
+footer, .page-wrap:after {
+  height: 120px; 
+}
+.footertxt{
+	float:left;
+	margin-left:5px;
+	color:white;
+}
+
+.navbar-inverse{
+	background:#8B0000;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	font-family:Arial, Helvetica, sans-serif;
+	color:white;
+	font-size:larger;
+}
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: navy;
+  font-weight:bold;
+}
+.col-md-3:nth-child(4n+1){
+	clear:left;
+}
+
+.jumbotron-home{
+	background: url('wallpaper.png') no-repeat center center; 
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.jumbotron-menu{
+	background-position:right;
+	background-repeat:no-repeat;
+  	background-image: url('tron.png');
+ 	background-size: 80% 100%;
+  	background-color:white;
+  h1, h2 {
+  	color: blue;
+    font-family: georgia, serif;
+  }
+
+
+/* checkout form */
+
+
+form {
+    display:block;
+    background: #ccc;
+    border: 1px solid #000;
+}
+
+form .collapsable-section .label {
+    background: #fff;
+    cursor: pointer;
+    font-weight:bold;
+    margin-bottom: 10px;
+}
+
+form .collapsable-section {
+    margin: 15px;
+}
+
+
+

@@ -1,0 +1,37 @@
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navy">
+    <div class="navbar-header">
+      <%=link_to(image_tag("180s.png", :height=>"100px"), site_home_path) %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><%=link_to "Home", site_home_path%></li>
+        <li><%=link_to "About", site_home_path%></li>
+        <li><%=link_to "Menu", products_path %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if user_signed_in? %>
+
+         <% if !empty %>
+        <li><%= link_to(image_tag("cart.png", :height => 40), order_path(id: session[:order_id])) %></li>
+        <% end %>
+        
+        <li><%=link_to "My Profile", site_profile_path %></li>
+        <li><%=link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+        
+        <% else %>
+        <li><%=link_to "Sign Up", new_user_registration_path %></li>
+        <li><%=link_to "Log In", user_session_path %></li>
+        <% end %>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</div>
+</nav>
+
+</div>

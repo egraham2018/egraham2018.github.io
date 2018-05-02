@@ -1,0 +1,23 @@
+<center>
+<h1 style= "text-decoration: underline;">Hello, <%= current_user.name %>! </h1>
+
+<% if current_user.admin? %>
+
+<h3><%= link_to "Order History", sales_path %></h3>
+<h3><%=link_to "Edit Account Information", edit_user_registration_path %></h3>
+<h3><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></h3>
+
+<% else %>
+
+<h3> <%= link_to "Order History", purchases_path %> </h3>
+<h3><%=link_to "Edit Account Information", edit_user_registration_path %></h3>
+<h3><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></h3>
+
+<% end %>
+
+<br/>
+</center>
+
+<div class="jumbotron jumbotron-home">
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>

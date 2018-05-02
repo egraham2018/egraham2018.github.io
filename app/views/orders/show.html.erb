@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Order</h1>
+
+<table>
+  <tr>
+    <th>Customer: </th>
+    <td><%= @order.buyer.email%></td>
+  </tr>
+  <tr>
+    <th>Status:</th>
+    <td><%= @order.status %></td>
+  </tr>
+  <tr>
+    <th>Items:</th>
+    <td><%= @order.order_items.count %></td>
+  </tr>
+  <tr>
+    <th>Items</th>
+    <th>Title</th>
+    <th>Quantity</th>
+    <th>Unit Price</th>
+    <th>Subtotal</th>
+    <th></th>
+  </tr>
+
+  <% @order.order_items.each do |item| %>
+  <tr>
+  <td></td>
+  <td><%=item.product.name%></td>
+  <td><%= link_to item.quantity, edit_order_item_path(item) %></td>
+  <td><%=item.product.price%></td>
+  <td><%=item.subtotal%></td>
+  <td><%= link_to 'Remove', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
+
+  <% end %>
+</table>
+<p> Total: <%=number_to_currency(@order.total)%> </p>
+<%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %>
+
+<%= link_to 'Back', orders_path %>
+<%= link_to 'Checkout', edit_order_path%>

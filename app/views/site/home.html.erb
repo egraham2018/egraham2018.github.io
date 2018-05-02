@@ -1,0 +1,53 @@
+<% provide(:title, "Home") %>
+    <div class="jumbotron jumbotron-homepage">
+    	<center>
+    		<h1> <i> Marvin's Delivers</i> </h1> <br/>
+		<div class="date">
+	<% if @now.wednesday? %>
+	<h3>Wednesday's Hours:</h3>
+	<h4>11:00pm-2:00pm</h4>
+	<h4>5:00pm-1:00am</h4>
+	
+	<% elsif @now.tuesday? %>
+	<h3>Tuesday's Hours: </h3>
+	<h4>11:00am-2:00pm</h4>
+	<h4>5:00pm-1:00am</h4>
+	
+	<% elsif @now.monday? %>
+	<h3>Monday's Hours: </h3>
+	<h4>11:00am-2:00pm</h4>
+	<h4>5:00pm-1:00am</h4>
+	</div>
+	
+	<% elsif @now.thursday? %>
+	<h3>Thursday's Hours: </h3>
+	<h4>11:00am-2:00pm</h4>
+	<h4>5:00pm-2:00am</h4>
+	
+	<% elsif @now.friday? %>
+	<h3>Friday's Hours: </h3>
+	<h4>11:00am-2:00pm</h4>
+	<h4>5:00pm-2:00am</h4>
+	
+	<% elsif @now.saturday? %>
+	<h3>Saturday's Hours:</h3>
+	<h4>11:00am-2:00pm</h4>
+	<h4>5:00pm-12:00am</h4>
+	
+	<% elsif @now.sunday? %>
+	<h3>Sunday's Hours:</h3>
+	<h4>5:00pm-1:00am</h4>
+	<% end %>
+	<br/>
+	<% if !user_signed_in? %>
+	<%= button_to "Order Now", products_path, class: "btn btn-primary" %>
+	<% end %>
+
+	</center>
+    	
+    </div>
+
+   
+
+	
+	
