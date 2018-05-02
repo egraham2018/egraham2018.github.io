@@ -1,15 +1,16 @@
 <div class="row">
   
-  <div class="col-md-8">
+  <div class="col-md-7">
 
 <%= form_with(model: order, local: true) do |f| %>
-  <% if order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order_item from being saved:</h2>
+ <% if @order.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <h4><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h4>
 
       <ul>
-      <% order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
@@ -34,15 +35,41 @@
     <p> (Leave unchecked if you will pick up) </p>
   </div>
 
-  <p> Total: <%=@order.total%> </p>
-
   <div class="form-group">
     <%= f.submit "Complete Order", class: "btn btn-success" %>
   </div>
   
 <% end %>
-
  
 </div>
+
+<div class="col-md-5">
+      <div style="background-color: #f1f1f1;
+  padding:4px 4px 4px 10px;">
+        <center>
+        <h3 style="border-bottom:1px solid black;">ORDER</h3>
+        <center>
+        <table class="cart">
+          <% @order.order_items.each do |item| %>
+            <tr style="border:none;padding:5px;text-align:center;">
+                <th style="border:none;padding:5px;text-align:center;">Item</th>
+                <th style="border:none;padding:5px;text-align:center;">Quantity</th>
+                <th style="border:none;padding:5px;text-align:center;">Price</th>
+            </tr>
+            <tr style="border:none;padding:5px;text-align:center;">
+                <td style="border:none;padding:5px;text-align:center;"><%=item.product.name%></td>
+                <td style="border:none;padding:5px;text-align:center;"><%=item.quantity%></td>
+                <td style="border:none;padding:5px;text-align:center;"><%=number_to_currency(item.product.price)%></td>
+            </tr>
+            <% end %>
+        </table>
+        </center>
+        <br/>
+        <h3 style="border-top:1px solid black;">Total: <%=number_to_currency(@order.total)%> </h3>
+        </center>
+    </div>
 </div>
+
+</div>
+
 

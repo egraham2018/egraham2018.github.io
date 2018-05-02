@@ -88,26 +88,3 @@ footer, .page-wrap:after {
     font-family: georgia, serif;
   }
 
-
-/* checkout form */
-
-
-form {
-    display:block;
-    background: #ccc;
-    border: 1px solid #000;
-}
-
-form .collapsable-section .label {
-    background: #fff;
-    cursor: pointer;
-    font-weight:bold;
-    margin-bottom: 10px;
-}
-
-form .collapsable-section {
-    margin: 15px;
-}
-
-
-
