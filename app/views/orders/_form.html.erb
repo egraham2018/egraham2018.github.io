@@ -30,9 +30,15 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :delivery %>
-    <%= f.check_box :delivery %>
+    <%= f.label :delivery, class: "form-check-label" %>
+    <%= f.check_box :delivery, class: "form-check-input" %>
     <p> (Leave unchecked if you will pick up) </p>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tiger, class: "form-check-label"  %>
+    <%= f.check_box :tiger, class: "form-check-input" %>
+    <p> (Check this box if you will pay with TigerCash upon pickup/delivery) </p>
   </div>
 
   <div class="form-group">
@@ -44,18 +50,17 @@
 </div>
 
 <div class="col-md-5">
-      <div style="background-color: #f1f1f1;
-  padding:4px 4px 4px 10px;">
+      <div style="padding:2px 2px 2px 2px; border: 1px solid black">
         <center>
         <h3 style="border-bottom:1px solid black;">ORDER</h3>
         <center>
         <table class="cart">
-          <% @order.order_items.each do |item| %>
             <tr style="border:none;padding:5px;text-align:center;">
                 <th style="border:none;padding:5px;text-align:center;">Item</th>
                 <th style="border:none;padding:5px;text-align:center;">Quantity</th>
                 <th style="border:none;padding:5px;text-align:center;">Price</th>
             </tr>
+            <% @order.order_items.each do |item| %>
             <tr style="border:none;padding:5px;text-align:center;">
                 <td style="border:none;padding:5px;text-align:center;"><%=item.product.name%></td>
                 <td style="border:none;padding:5px;text-align:center;"><%=item.quantity%></td>
@@ -65,7 +70,7 @@
         </table>
         </center>
         <br/>
-        <h3 style="border-top:1px solid black;">Total: <%=number_to_currency(@order.total)%> </h3>
+        <h3 style="border-top:1px solid black;">TOTAL: <%=number_to_currency(@order.total)%> </h3>
         </center>
     </div>
 </div>

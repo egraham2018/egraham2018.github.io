@@ -1,0 +1,78 @@
+<div class= "row">
+  <div class="col-md-7">
+      <%= image_tag "outside.jpg", :alt=>"Marvin's", :width=>"500px"%>
+  </div>
+
+  <div class="col-md-5">
+      <center>
+    <p>Marvin's (often called "Marv's") is the home of the famous GCB's (Garlic Cheeseburgers).
+    They also specialize in pizza and burritos. All of these are featured throughout the week
+    by their "daily specials." They also deliver at nearly any time of the night. Marv's delivery service is very helpful to students "pulling all-nighters", and generally, for anyone who
+    gets hungry late at night. You'll find the famed restaurant at 202 S College Avenue, just a
+    short walk from campus.</p>
+  
+    <h2>Hours:</h2>
+    <p>
+    Sun - Wed <br/>
+    5:00 PM - 1:00 AM<br/>
+    Mon - Sat<br/>
+    11:00 AM - 2:00 PM<br/>
+    Thu - Fri<br/>
+    5:00 PM - 2:00 AM<br/>
+    Sat<br/>
+    5:00 PM - 12:00 AM
+    </p>
+    </center>
+  </div>
+</div><br/><br/>
+
+<div class="row">
+  
+  <h2>Specials and Events</h2><hr>
+  <center>
+    <div class="calendar">
+    <h3 id="month">
+      <%= link_to "<", date: @date.prev_month %>
+      <%=@date.strftime("%B %Y")%>
+      <%= link_to ">", date: @date.next_month %>
+      </h3>
+    <%= calendar @date do |date| %>
+      <%=date.day %>
+      <% if @events_by_date[date] %>
+      
+          <% @events_by_date[date].each do |event| %>
+          <%=link_to event.name, event %> 
+          <% end %>
+     
+        <% end %>
+    <% end %>
+  </div>
+  </center>
+
+<% if user_signed_in? && current_user.admin? %>
+<h1>Edit Events</h1>
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.description %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+</center>
+<br>
+</div>

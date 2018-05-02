@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   get 'site/home'
   get 'site/profile'
   devise_for :users, controllers: { confirmations: 'confirmations' }

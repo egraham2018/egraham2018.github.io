@@ -1,0 +1,58 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+  /* calendar ********************************/
+
+.calendar{
+    border-collapse: collapse;
+    width:90%;
+}
+.calendar th, td {
+        border: 2px solid #999;
+        width:12.8571429%;
+}
+.calendar th{
+        padding:4px;
+        background: navy;
+        color: white;
+        text-align: center;
+}
+
+.calendar td{
+        background: #FFF;
+        color: black;
+        height:80px;
+        vertical-align:top;
+        padding: 4px;
+}
+.calendar .notmonth {
+  color: #CCC; 
+}
+
+.calendar .today { 
+  background-color: #DDEDFF;
+}
+
+
+.calendar #month{
+    margin:0;
+    padding-top: 10px;
+    padding-bottom:10px;
+    text-align: center;
+}
+.calendar a{
+        text-decoration:none;
+        padding: 0 10px;
+        color: #999;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  width: 96%;               
+  background-color: navy;
+  height: 1px;
+}

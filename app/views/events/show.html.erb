@@ -1,0 +1,16 @@
+ <center>
+    <h1>
+  
+  <%= @event.name %>
+</h1>
+<h4>
+  <%= @event.occuring %>
+<br/>
+  <%= @event.description %>
+</h4>
+<%= link_to '< Back', events_path %> 
+
+<% if user_signed_in? && current_user.admin? %>
+<%= link_to '| Edit', edit_event_path(@event) %> 
+<% end %>
+</center>

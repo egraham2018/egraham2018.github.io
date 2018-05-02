@@ -61,7 +61,7 @@ class OrdersController < ApplicationController
       if @order.update(order_params.merge(status: 'submitted'))
       #if @order.update(order_params)
         session[:order_id] = nil
-        format.html { redirect_to root_url, notice: 'Order was successfully submitted.' }
+        format.html { redirect_to root_url, notice: 'Order was successfully submitted. Expect a phone call in about 20 minutes!' }
       else
         format.html { render :edit }
         format.json { render json: @order.errors, status: :unprocessable_entity }
@@ -88,6 +88,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:status, :delivery, :address, :city, :state)
+      params.require(:order).permit(:status, :delivery, :address, :city, :state, :tiger)
     end
 end
